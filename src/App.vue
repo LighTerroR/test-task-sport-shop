@@ -1,25 +1,24 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="purple"
-      dark
-    >
-      <h2>Sport Shop</h2>
-    </v-app-bar>
-
-    <v-main>
-      <router-view/>
-    </v-main>
-  </v-app>
+  <div>
+    <Header />
+    <router-view/>
+  </div>
 </template>
 
 <script>
+import Header from '@/components/Header.vue';
 
 export default {
   name: 'App',
-
-  data: () => ({
-  }),
+  components: {
+    Header,
+  },
+  beforeCreated() {
+    this.$store.commit('takeItemsFromLocalStorage', JSON.parse(localStorage.sportProducts));
+  },
 };
 </script>
+
+<style lang="scss">
+@import "~@/assets/scss/vendors/bootstrap-vue/index";
+</style>

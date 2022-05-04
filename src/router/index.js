@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import MainPage from '@/views/MainPage.vue';
-import ProductPage from '@/views/ProductPage.vue';
+import ItemPage from '@/views/ItemPage.vue';
 import EditPage from '@/views/EditPage.vue';
 
 Vue.use(VueRouter);
@@ -13,12 +13,12 @@ const routes = [
     component: MainPage,
   },
   {
-    path: '/product',
-    name: 'product',
-    component: ProductPage,
+    path: '/item/:id',
+    name: 'item',
+    component: ItemPage,
   },
   {
-    path: '/edit',
+    path: '/item/:id/edit',
     name: 'edit',
     component: EditPage,
   },
